@@ -48,6 +48,12 @@ flutter:
   assets:
       - asset/JE_ancien.png
       - asset/JE_complet.png
+      - asset/flutter.png
+      - asset/flutter_banniere.png
+      - asset/react_native.png
+      - asset/react_native_banniere.png
+      - asset/react_native_nom.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
