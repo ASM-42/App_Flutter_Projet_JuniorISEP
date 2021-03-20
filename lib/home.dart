@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 void main() {
@@ -18,12 +19,13 @@ class Home extends StatelessWidget {
       home: //Scaffold(
         Builder(
         builder: (context) => Scaffold(
+          backgroundColor: Colors.white,
         body: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             SizedBox(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height/2,
+              height: MediaQuery.of(context).size.height/3,
               child: (Image.asset('asset/JE_complet.png',
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height*50,)
@@ -31,7 +33,7 @@ class Home extends StatelessWidget {
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height/10,
+              height: MediaQuery.of(context).size.height/5,
               child: Text(
                   'Projet Recrutement n°3',
                   style: TextStyle (
@@ -50,7 +52,7 @@ class Home extends StatelessWidget {
                 onPressed: () {
                      Navigator.push(
                        context,
-                       MaterialPageRoute(builder: (context) => Home2()),
+                       MaterialPageRoute(builder: (context) => Consignes()),
                      );
                    },
                 child: Text('Découvrir',
@@ -62,7 +64,7 @@ class Home extends StatelessWidget {
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height/7,
+              height: MediaQuery.of(context).size.height/5,
               child: Container(
                 alignment: Alignment.bottomCenter,
                 child: Text(
@@ -102,7 +104,7 @@ BoxDecoration myBoxDecoration() {
   )
   );
 }
-class Home2 extends StatelessWidget {
+class Consignes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -111,6 +113,7 @@ class Home2 extends StatelessWidget {
           primaryColor: const Color(0xFF6B62A3)
         ),
         home: Scaffold(
+            backgroundColor: Colors.white,
             body:
             Column(
               children: <Widget>[
@@ -128,40 +131,151 @@ class Home2 extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width/1.1,
-                  height: MediaQuery.of(context).size.height/2,
+                  width: MediaQuery.of(context).size.width/1.05,
+                  height: MediaQuery.of(context).size.height/2.8,
                   child: Container(
-                    margin: const EdgeInsets.all(2.0),
+                    //margin: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 0.002,),
                     decoration: myBoxDecoration(),
-                    child: Center(
-                      child: RichText(
-                        textAlign: TextAlign.justify,
-                        text: TextSpan(
-                          text: 'Comparer la nouvelle version de Flutter aux autres outils permettant de créer des applications mobiles cross-platform, disponibles sur le marché. Flutter serait-elle une solution plus adaptée que React Native ppour le travail de Junior ISEP?',
-                          style: TextStyle(
-                            fontSize : 20,
-                            color: Colors.black,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Center(
+                        child: RichText(
+                          textAlign: TextAlign.justify,
+                          text: TextSpan(
+                            text: 'Comparer la nouvelle version de Flutter aux autres outils permettant de créer des applications mobiles cross-platform, disponibles sur le marché. ',
+                            style: TextStyle(
+                              fontSize : 20,
+                              color: Colors.black,
+                              ),
+                              children: <TextSpan>[
+                                TextSpan(text: '\nFlutter serait-elle une solution plus adaptée que React Native pour le travail de Junior ISEP?'),
+                                TextSpan(text: '')
+                          ]
                           ),
+                    ),
+                      ),
+                      ),
+                    ),
+                  ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height/5,
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width/2,
+                      height: MediaQuery.of(context).size.height/10,
+                      child: (ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            primary: Colors.yellow[900]),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Menu()),
+                          );
+                        },
+                        child: Text("C'est parti !",
+                          style: TextStyle (
+                              fontSize: 25),
+                        ),
+                      )
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            )
+        )
+    );
+  }
+}
+
+
+
+class Menu extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'Flutter layout demo',
+        theme: ThemeData(
+            primaryColor: const Color(0xFF6B62A3)
+        ),
+        home: Scaffold(
+            backgroundColor: Colors.white,
+            body:
+            Column(
+              children: <Widget>[
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height/5,
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width/2,
+                      height: MediaQuery.of(context).size.height/10,
+                      child: Tooltip(
+                        message: "Context",
+
+                        child: (TextButton(
+                          style: TextButton.styleFrom(
+                            primary: Colors.deepPurple[600],
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text("1. Qu'est-ce qu'un outil cross-plateforme",
+                            style: TextStyle (
+                                fontSize: 25),
+                          ),
+                        )
                         ),
                       ),
                     ),
                   ),
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height/10,
-                  child: Center(
-                    child: (ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          primary: Colors.yellow[900]),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text('Go Back',
-                        style: TextStyle (
-                            fontSize: 25),
+                  width: MediaQuery.of(context).size.width/1.05,
+                  height: MediaQuery.of(context).size.height/2.8,
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width/2,
+                      height: MediaQuery.of(context).size.height/10,
+                      child: (ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            primary: Colors.yellow[900]),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text("C'est parti !",
+                          style: TextStyle (
+                              fontSize: 25),
+                        ),
+                      )
                       ),
-                    )
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height/5,
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width/2,
+                      height: MediaQuery.of(context).size.height/10,
+                      child: (ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            primary: Colors.yellow[900]),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text("C'est parti !",
+                          style: TextStyle (
+                              fontSize: 25),
+                        ),
+                      )
+                      ),
                     ),
                   ),
                 ),
