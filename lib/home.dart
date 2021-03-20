@@ -109,7 +109,7 @@ class Consignes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter layout demo',
+        title: 'Consignes',
         theme: ThemeData(
           primaryColor: const Color(0xFF6B62A3)
         ),
@@ -198,27 +198,6 @@ class Consignes extends StatelessWidget {
 
 
 class Menu extends StatelessWidget {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold, decorationColor: Color.fromARGB(255, 245, 127, 23),);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 1: Context',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Flutter',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: React Native',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 4: Comparaison',
-      style: optionStyle,
-    ),
-  ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -319,7 +298,7 @@ class Menu extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Bar()),
+                            MaterialPageRoute(builder: (context) => Contexte()),
                           );
                         },
                         child: Text("4. Etude Comparative",
@@ -344,31 +323,6 @@ class Menu extends StatelessWidget {
                   ),
                 ]
             ),
-          bottomNavigationBar: BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.ad_units_outlined),
-                label: 'Context',
-              ),
-              BottomNavigationBarItem(
-                icon: ImageIcon( AssetImage('asset/flutter.png'),
-                ),
-                label: 'Flutter',
-              ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage('asset/react_native.png'),
-                ),
-                label: 'React',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.analytics_outlined),
-                label: 'Comparaison',
-              ),
-            ],
-            currentIndex: _selectedIndex,
-            selectedItemColor: Colors.deepPurple[600],
-          ),
         )
     );
   }
@@ -376,16 +330,7 @@ class Menu extends StatelessWidget {
 
 
 
-
-
-
-
-
-
-
-
-
-class Bar extends StatelessWidget {
+class Contexte extends StatelessWidget {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold, decorationColor: Color.fromARGB(255, 245, 127, 23),);
@@ -410,8 +355,60 @@ class Bar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
+    return MaterialApp(
+      title: 'Consignes',
+      theme: ThemeData(
+          primaryColor: const Color(0xFF6B62A3)
+      ),
+      home: Scaffold(
+          backgroundColor: Colors.white,
+          body:
+              Column(
+                  children: <Widget>[
+              SizedBox(
+              width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height/5,
+        child: Center(
+          child: Text(
+            'Application cross-plateformes',
+            style: TextStyle (
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Colors.deepPurple[600]),
+          ),
+        ),
+      ),
+      SizedBox(
+        width: MediaQuery.of(context).size.width/1.05,
+        height: MediaQuery.of(context).size.height/2.8,
+        child: Container(
+          //margin: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 0.002,),
+          decoration: myBoxDecoration(),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Center(
+              child: RichText(
+                textAlign: TextAlign.justify,
+                text: TextSpan(
+                    text: 'Comparer la nouvelle version de Flutter aux autres outils permettant de créer des applications mobiles cross-platform, disponibles sur le marché. ',
+                    style: TextStyle(
+                      fontSize : 20,
+                      color: Colors.black,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(text: '\nFlutter serait-elle une solution plus adaptée que React Native pour le travail de Junior ISEP?'),
+                      TextSpan(text: '')
+                    ]
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+              ],
+        ),
+
+        bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.ad_units_outlined),
@@ -436,6 +433,6 @@ class Bar extends StatelessWidget {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.deepPurple[600],
       ),
-    );
+      ));
   }
 }
