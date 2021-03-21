@@ -227,70 +227,7 @@ class Menu extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height/7,
                     child: Tooltip(
-                      message: "Context",
-                      child: (TextButton(
-                        style: TextButton.styleFrom(
-                          primary: Colors.deepPurple[600],
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text("1. Qu'est-ce qu'un outil cross-plateforme",
-                          style: TextStyle (
-                              decoration: TextDecoration.underline,
-                              fontSize: 20),
-                        ),
-                      )
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height/7,
-                    child: Tooltip(
-                      message: "Context",
-                      child: (TextButton(
-                        style: TextButton.styleFrom(
-                          primary: Colors.deepPurple[600],
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text("2. Flutter",
-                          style: TextStyle (
-                              decoration: TextDecoration.underline,
-                              fontSize: 20),
-                        ),
-                      )
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height/7,
-                    child: Tooltip(
-                      message: "Context",
-                      child: (TextButton(
-                        style: TextButton.styleFrom(
-                          primary: Colors.deepPurple[600],
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text("3. React Native",
-                          style: TextStyle (
-                              decoration: TextDecoration.underline,
-                              fontSize: 20),
-                        ),
-                      )
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height/7,
-                    child: Tooltip(
-                      message: "Context",
+                      message: "Première Partie",
                       child: (TextButton(
                         style: TextButton.styleFrom(
                           primary: Colors.deepPurple[600],
@@ -298,12 +235,63 @@ class Menu extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Contexte()),
+                            MaterialPageRoute(builder: (context) => Comp()),
                           );
                         },
-                        child: Text("4. Etude Comparative",
+                        child: Text("1. Qu'est-ce qu'un outil cross-plateform",
                           style: TextStyle (
                               decoration: TextDecoration.underline,
+                              fontSize: 20),
+                        ),
+                      )
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height/7,
+                    child: Tooltip(
+                      message: "Seconde partie",
+                      child: (TextButton(
+                        style: TextButton.styleFrom(
+                          primary: Colors.deepPurple[600],
+                        ),
+                        child: Text("2. Flutter",
+                          style: TextStyle (
+                              fontSize: 20),
+                        ),
+                      )
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height/7,
+                    child: Tooltip(
+                      message: "Troisième Partie",
+                      child: (TextButton(
+                        style: TextButton.styleFrom(
+                          primary: Colors.deepPurple[600],
+                        ),
+                        child: Text("3. React Native",
+                          style: TextStyle (
+                              fontSize: 20),
+                        ),
+                      )
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height/7,
+                    child: Tooltip(
+                      message: "Quatrième Partie",
+                      child: (TextButton(
+                        style: TextButton.styleFrom(
+                          primary: Colors.deepPurple[600],
+                        ),
+                        child: Text("4. Etude Comparative",
+                          style: TextStyle (
                               fontSize: 20),
                         ),
                       )
@@ -330,109 +318,321 @@ class Menu extends StatelessWidget {
 
 
 
-class Contexte extends StatelessWidget {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold, decorationColor: Color.fromARGB(255, 245, 127, 23),);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 1: Context',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Flutter',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: React Native',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 4: Comparaison',
-      style: optionStyle,
-    ),
-  ];
+
+class Comp extends StatelessWidget {
+  const Comp({Key key}) : super(key: key);
+
+  static const String _title = 'Flutter Code Sample';
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Consignes',
-      theme: ThemeData(
-          primaryColor: const Color(0xFF6B62A3)
-      ),
-      home: Scaffold(
-          backgroundColor: Colors.white,
-          body:
-              Column(
-                  children: <Widget>[
+    return const MaterialApp(
+      title: _title,
+      home: MyStatefulWidget(),
+    );
+  }
+}
+
+/// This is the stateful widget that the main application instantiates.
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key key}) : super(key: key);
+
+  @override
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+/// This is the private State class that goes with MyStatefulWidget.
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+  TextStyle(fontSize: 30, fontWeight: FontWeight.bold, decorationColor: Color.fromRGBO(23, 43, 432, 45678));
+  static List<Widget> _widgetOptions = <Widget>[
+  SingleChildScrollView(
+    child: Column(
+            children: <Widget>[
               SizedBox(
-              width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height/5,
-        child: Center(
-          child: Text(
-            'Application cross-plateformes',
-            style: TextStyle (
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-                color: Colors.deepPurple[600]),
+                height: 30,
+              ),
+                      SizedBox(
+                                //width: media.size.width, height: media.size.height/5,
+                        child: Center(
+                          child: Text('Application cross-plateform',
+                            style: TextStyle (
+                                fontSize: 25, fontWeight: FontWeight.bold, color: Colors.deepPurple[600])
+                          ),
+                        ),
+                      ),
+              SizedBox(
+                height: 30,
+              ),
+                      new SingleChildScrollView(
+                        child: SizedBox(
+                          child: Container(
+                            decoration: myBoxDecoration(),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Center(
+                                child: RichText(
+                                  textAlign: TextAlign.justify,
+                                  text: TextSpan(
+                                      text: "Le développement « cross platform » permet de concevoir deux sortes d’applications mobiles: "
+                                          "\n - les applications natives (language du Système d'exploitation) \n - et les hybrides (issues du Web). ",
+                                      style: TextStyle(
+                                        fontSize : 20,
+                                        color: Colors.black,
+                                      ),
+                                      children: <TextSpan>[
+                                        TextSpan(text: "\n \n Comment choisir entre Natif et Hybride? \n \n ",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                        TextSpan(text: '\n *Natives \n',
+                                            style: TextStyle(
+                                              decoration: TextDecoration.underline,
+                                            )),
+                                        TextSpan(text: "Toutes les applications mobiles natives sont téléchargeables depuis les stores. "
+                                            "Elles sont conçues pour permettre de profiter du potentiel de votre smartphone, "
+                                            "car elles sont développées spécifiquement pour sa plateforme avec son langage qui lui est propre. "
+                                            "Ce qui implique une meilleur réactivitée et une utilisation régulière."
+                                            "De plus, étant faite 'sur mesure' pour le smartphone, elle peux bénificié parfois du fonctionnent sans connexion internet,"
+                                            " contrairement aux hybides. "
+                                            "Mais cela implique aussi qu'un seul détail, tel que la taille de l'écran, suffise pour qu'elle ne soit plus optimale."
+                                            "Une application native doit être à nouveau développer si l'on souhaite l'utiliser sous un autre système d'exploitation. "
+                                            ),
+                                        TextSpan(text: '\n\n *Hybrides \n',
+                                            style: TextStyle(
+                                              decoration: TextDecoration.underline,
+                                            )),
+                                        TextSpan(text: "Les languages Web (HTML, CSS, JavaScrpit) sont très répandus, ce qui est un grand avantage pour les applications Hybrides."
+                                            "Ces applications sont codéés en languages Web, et sont donc à peu près universelles."
+                                            "Elles s'adaptent (pour la plupart) à toutes les résolutions d'écrans, elles sont donc très populaires."
+                                            "Mais contrairement aux applications natives, elles ne seront pas optimales pour le mobile utilisé."),
+                                        TextSpan(text: '\n \n Le meilleur des deux mondes \n\n',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                        TextSpan(text: "Les applications natives, comme hybrides ont leurs qualitées et leurs défauts, "
+                                            "et c'est à ce moment que le developpement 'cross-plateform' fait sont entrée."
+                                            "C'est une autre façon de programmer une application aussi bien native qu'hybride."
+                                            "En effet sur un bon nombre de framework multiplateforme vous pouvez aussi bien coder en C# que en HTML."
+                                            "Vous pouvez développer votre application aussi bien pour un store que pour internet."
+                                            "Un autre avantage, et pas des moindres, c'est que vous avez la possibilité de créer une application capable "
+                                            "de s'adapter à differentes tailles d'écran, tout en gardant une optimisation certaines pour des smartphones précis. ")
+                                      ]
+                                  ),),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+            ],
+    ),
+  ),
+    SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          SizedBox(
+            height: 30,
           ),
-        ),
-      ),
-      SizedBox(
-        width: MediaQuery.of(context).size.width/1.05,
-        height: MediaQuery.of(context).size.height/2.8,
-        child: Container(
-          //margin: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 0.002,),
-          decoration: myBoxDecoration(),
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
+          SizedBox(
+            //width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height/5,
             child: Center(
-              child: RichText(
-                textAlign: TextAlign.justify,
-                text: TextSpan(
-                    text: 'Comparer la nouvelle version de Flutter aux autres outils permettant de créer des applications mobiles cross-platform, disponibles sur le marché. ',
-                    style: TextStyle(
-                      fontSize : 20,
-                      color: Colors.black,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(text: '\nFlutter serait-elle une solution plus adaptée que React Native pour le travail de Junior ISEP?'),
-                      TextSpan(text: '')
-                    ]
-                ),
+              child: Text('Flutter',
+                  style: TextStyle (
+                      fontSize: 25, fontWeight: FontWeight.bold, color: Colors.deepPurple[600])
               ),
             ),
           ),
+          SizedBox(
+            height: 30,
+          ),
+          SizedBox( //width: MediaQuery.of(context).size.width/1.05, height: MediaQuery.of(context).size.height/2.8,
+            child: Container(
+              decoration: myBoxDecoration(),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Center(
+                  child: RichText(
+                    textAlign: TextAlign.justify,
+                    text: TextSpan(
+                        text: "Flutter est un framewrok de développement d'applications multiplateformes conçu par Google. "
+                            "Cette plateforme es diponible en open source, et ce depuis sa première version en 2018 et met à disposition une grande variété de "
+                            "bibliothèques d’éléments d’IU standard pour Android et iOS. "
+                            "Flutter reste cependant aussi adapté au développement d’applications web de bureau classiques. "
+                            "Les applications développées avec prennent l’aspect d’applications typiques des systèmes correspondants (Android ou IOS) "
+                            "et se comportent également de manière similaire, sans avoir besoin de prêter attention à ces caractéristiques. "
+                            "Flutter utilise le language Dart, qui à l'aide de notions telles que Media Query ou Aspect Ratio, "
+                            "va récuperer les caractéristiques de l'objet utilisé afin d'y adapter l'application",
+                        style: TextStyle(
+                          fontSize : 20,
+                          color: Colors.black,
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(text: ''),
+                          TextSpan(text: '')
+                        ]
+                    ),),),),),),],),
+    ),
+    Column(
+      children: <Widget>[
+        SizedBox(
+          height: 30,
+        ),
+        SizedBox(
+          //width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height/5,
+          child: Center(
+            child: Text('React Native',
+                style: TextStyle (
+                    fontSize: 25, fontWeight: FontWeight.bold, color: Colors.deepPurple[600])
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 30,
+        ),
+        SizedBox( //width: MediaQuery.of(context).size.width/1.05, height: MediaQuery.of(context).size.height/2.8,
+          child: Container(
+            decoration: myBoxDecoration(),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Center(
+                child: RichText(
+                  textAlign: TextAlign.justify,
+                  text: TextSpan(
+                      text: 'Comparer la nouvelle version de Flutter aux autres outils permettant de créer des applications mobiles cross-platform, disponibles sur le marché. ',
+                      style: TextStyle(
+                        fontSize : 20,
+                        color: Colors.black,
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(text: '\nFlutter serait-elle une solution plus adaptée que React Native pour le travail de Junior ISEP?'),
+                        TextSpan(text: '')
+                      ]
+                  ),),),),),),],),
+    Column(
+      children: <Widget>[
+        SizedBox(
+          height: 30,
+        ),
+        SizedBox(
+          //width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height/5,
+          child: Center(
+            child: Text('Comparaison',
+                style: TextStyle (
+                    fontSize: 25, fontWeight: FontWeight.bold, color: Colors.deepPurple[600])
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 30,
+        ),
+        SizedBox( //width: MediaQuery.of(context).size.width/1.05, height: MediaQuery.of(context).size.height/2.8,
+          child: Container(
+            decoration: myBoxDecoration(),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Center(
+                child: RichText(
+                  textAlign: TextAlign.justify,
+                  text: TextSpan(
+                      text: 'Comparer la nouvelle version de Flutter aux autres outils permettant de créer des applications mobiles cross-platform, disponibles sur le marché. ',
+                      style: TextStyle(
+                        fontSize : 20,
+                        color: Colors.black,
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(text: '\nFlutter serait-elle une solution plus adaptée que React Native pour le travail de Junior ISEP?'),
+                        TextSpan(text: '')
+                      ]
+                  ),),),),),),],),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      print(Icons.label);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body:
+      SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height/7,
+                child: (TextButton(
+                  style: TextButton.styleFrom(
+                    primary: Colors.deepPurple[600],
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Home()),);},
+                  child: Text("Home",
+                    style: TextStyle (
+                        decoration: TextDecoration.underline, fontSize: 20),),)),),
+            SizedBox(
+              child: Center(
+                child: _widgetOptions.elementAt(_selectedIndex),
+              ),
+            ),
+            //Row(
+              //children: [
+                //SizedBox(
+                  //child: (TextButton(
+                    //style: TextButton.styleFrom(
+                      //primary: Colors.deepPurple[600],),
+                    //onPressed: () {_widgetOptions.elementAt(_selectedIndex+1);},
+                    //child: Text("Précédent",
+                      //style: TextStyle (decoration: TextDecoration.underline, fontSize: 20),
+                    //),)),),
+                //SizedBox(
+                  //child: (TextButton(
+                    //style: TextButton.styleFrom(
+                      //primary: Colors.deepPurple[600],),
+                    //onPressed: () {
+                      //Navigator.push(
+                        //context,
+                        //MaterialPageRoute(builder: (context) => Comp()),);},
+                    //child: Text("Suivant",
+                      //style: TextStyle (decoration: TextDecoration.underline, fontSize: 20),
+                    //),)),),
+              //],
+            //)
+          ],
         ),
       ),
-              ],
-        ),
 
-        bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.ad_units_outlined),
+            backgroundColor:  Color.fromARGB(255, 245, 127, 23),
+            icon: Icon(Icons.ad_units_outlined,),
             label: 'Context',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon( AssetImage('asset/flutter.png'),
+            icon: Icon(Icons.looks_one_outlined,
             ),
             label: 'Flutter',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage('asset/react_native.png'),
+            icon: Icon(Icons.looks_two_outlined,
             ),
             label: 'React',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.analytics_outlined),
+            icon: Icon(Icons.analytics_outlined,),
             label: 'Comparaison',
           ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.deepPurple[600],
+        onTap: _onItemTapped,
       ),
-      ));
+    );
   }
 }
